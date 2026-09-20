@@ -1,1 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Operation Dragoon | 1944</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>⚔</span>
+        OPERATION DRAGOON
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#leaders">Leaders</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#media">Media</a>
+    </nav>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="eyebrow">WORLD WAR II • SOUTHERN FRANCE</p>
+
+        <h1>
+            OPERATION
+            <span>DRAGOON</span>
+        </h1>
+
+        <p class="hero-text">
+            The Allied invasion of Southern France
+            on 15 August 1944.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#overview" class="btn primary">
+                Explore Operation
+            </a>
+
+            <a href="#timeline" class="btn secondary">
+                View Timeline
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-indicator">
+        <span>SCROLL TO EXPLORE</span>
+        <div class="scroll-line"></div>
+    </div>
+
+</section>
+
+
+<!-- ================= QUICK FACTS ================= -->
+
+<section class="facts">
+
+    <div class="fact-card">
+        <div class="fact-icon">📅</div>
+        <h3>15 AUGUST 1944</h3>
+        <p>Beginning of the Allied landings</p>
+    </div>
+
+    <div class="fact-card">
+        <div class="fact-icon">📍</div>
+        <h3>SOUTHERN FRANCE</h3>
+        <p>Mediterranean coast of France</p>
+    </div>
+
+    <div class="fact-card">
+        <div class="fact-icon">⚔</div>
+        <h3>ALLIED FORCES</h3>
+        <p>American, French and Allied troops</p>
+    </div>
+
+    <div class="fact-card">
+        <div class="fact-icon">🎯</div>
+        <h3>MAIN OBJECTIVE</h3>
+        <p>Secure ports and advance north</p>
+    </div>
+
+</section>
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section id="overview" class="section overview">
+
+    <div class="section-heading">
+
+        <p class="section-label">THE OPERATION</p>
+
+        <h2>
+            What Was <span>Operation Dragoon?</span>
+        </h2>
+
+        <div class="heading-line"></div>
+
+    </div>
+
+    <div class="overview-grid">
+
+        <div class="overview-image">
+
+            <img src="images/dragoon-landing.jpg"
+                 alt="Operation Dragoon landing">
+
+            <div class="image-caption">
+                Allied forces landing in Southern France
+            </div>
+
+        </div>
+
+        <div class="overview-content">
+
+            <p>
+                Operation Dragoon was an Allied military operation
+                during the Second World War. It began on
+                <strong>15 August 1944</strong> with a large-scale
+                amphibious landing on the Mediterranean coast of
+                Southern France.
+            </p>
+
+            <p>
+                The operation was designed to establish a strong
+                Allied position in southern France, capture important
+                ports and support the Allied advance across Europe.
+            </p>
+
+            <p>
+                Thousands of Allied soldiers, supported by naval
+                forces and aircraft, took part in the operation.
+                French forces also played an important role in
+                the campaign.
+            </p>
+
+            <button class="read-more-btn" onclick="showOverview()">
+                READ MORE
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="overviewExtra" class="extra-content">
+
+        <p>
+            The invasion was supported by extensive naval
+            bombardment and Allied air operations. After securing
+            the landing areas, Allied forces moved inland and
+            captured important towns and communication routes.
+        </p>
+
+        <p>
+            The campaign helped create another major Allied route
+            into France while German forces in the region were
+            forced to retreat.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= OBJECTIVES ================= -->
+
+<section class="dark-section">
+
+    <div class="section-heading">
+
+        <p class="section-label">MISSION</p>
+
+        <h2>Objectives of <span>Operation Dragoon</span></h2>
+
+    </div>
+
+    <div class="objective-grid">
+
+        <div class="objective-card">
+
+            <span class="number">01</span>
+
+            <h3>Capture Ports</h3>
+
+            <p>
+                Secure important Mediterranean ports to support
+                Allied logistics and supply operations.
+            </p>
+
+        </div>
+
+        <div class="objective-card">
+
+            <span class="number">02</span>
+
+            <h3>Open a New Front</h3>
+
+            <p>
+                Establish another major Allied front in France
+                and place additional pressure on German forces.
+            </p>
+
+        </div>
+
+        <div class="objective-card">
+
+            <span class="number">03</span>
+
+            <h3>Advance North</h3>
+
+            <p>
+                Move north through France and connect with
+                Allied forces advancing from other directions.
+            </p>
+
+        </div>
+
+        <div class="objective-card">
+
+            <span class="number">04</span>
+
+            <h3>Support Liberation</h3>
+
+            <p>
+                Help liberate more French territory from
+                German occupation.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TIMELINE ================= -->
+
+<section id="timeline" class="section timeline-section">
+
+    <div class="section-heading">
+
+        <p class="section-label">THE CAMPAIGN</p>
+
+        <h2>Operation <span>Timeline</span></h2>
+
+        <p>
+            Explore the important stages of the operation.
+        </p>
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                15 AUGUST 1944
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>The Landing Begins</h3>
+
+                <p>
+                    Allied troops land along the coast of
+                    Southern France. Naval and air forces
+                    support the invasion.
+                </p>
+
+                <button onclick="openEvent(
+                    'The Landing Begins',
+                    'On 15 August 1944, Allied forces began the amphibious invasion of Southern France. The landings were supported by naval bombardment and air operations.'
+                )">
+                    DETAILS →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                16–17 AUGUST
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>Allied Forces Move Inland</h3>
+
+                <p>
+                    Allied troops expand their positions and
+                    begin moving away from the landing beaches.
+                </p>
+
+                <button onclick="openEvent(
+                    'Moving Inland',
+                    'After establishing beachheads, Allied forces expanded their positions and moved inland. German resistance was encountered in several areas.'
+                )">
+                    DETAILS →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                AUGUST 1944
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>Rapid Allied Advance</h3>
+
+                <p>
+                    Allied forces continue advancing through
+                    Southern France.
+                </p>
+
+                <button onclick="openEvent(
+                    'Rapid Advance',
+                    'The Allied advance continued across Southern France. Important roads, towns and communication routes were secured.'
+                )">
+                    DETAILS →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                LATE AUGUST 1944
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>Liberation of Major Cities</h3>
+
+                <p>
+                    Allied and French forces liberate important
+                    areas of Southern France.
+                </p>
+
+                <button onclick="openEvent(
+                    'Liberation of Southern France',
+                    'The Allied advance resulted in the liberation of major areas and cities in Southern France as German forces withdrew northward.'
+                )">
+                    DETAILS →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                SEPTEMBER 1944
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>Forces Move North</h3>
+
+                <p>
+                    Allied forces continue their advance toward
+                    Northern France.
+                </p>
+
+                <button onclick="openEvent(
+                    'Continuing the Advance',
+                    'After the successful campaign in Southern France, Allied forces continued their movement northward and linked with other Allied formations.'
+                )">
+                    DETAILS →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MAP / IMAGE ================= -->
+
+<section class="map-section">
+
+    <div class="map-content">
+
+        <p class="section-label">THE BATTLEFIELD</p>
+
+        <h2>Southern France</h2>
+
+        <p>
+            Operation Dragoon was launched along the
+            Mediterranean coast of Southern France.
+        </p>
+
+        <div class="map-facts">
+
+            <div>
+                <strong>LOCATION</strong>
+                <span>Mediterranean Coast</span>
+            </div>
+
+            <div>
+                <strong>REGION</strong>
+                <span>Southern France</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="map-image">
+
+        <img src="images/operation-dragoon-map.jpg"
+             alt="Map of Operation Dragoon">
+
+    </div>
+
+</section>
+
+
+<!-- ================= LEADERS ================= -->
+
+<section id="leaders" class="section">
+
+    <div class="section-heading">
+
+        <p class="section-label">COMMAND</p>
+
+        <h2>Key <span>Leaders</span></h2>
+
+        <p>
+            Military leaders who played important roles
+            during the campaign.
+        </p>
+
+    </div>
+
+    <div class="leader-grid">
+
+        <div class="leader-card">
+
+            <div class="leader-image">
+                <img src="images/general-patch.jpg"
+                     alt="General Patch">
+            </div>
+
+            <div class="leader-info">
+
+                <h3>General Alexander Patch</h3>
+
+                <p>
+                    Commander of the U.S. Seventh Army
+                    during Operation Dragoon.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="leader-card">
+
+            <div class="leader-image">
+                <img src="images/general-truscott.jpg"
+                     alt="General Truscott">
+            </div>
+
+            <div class="leader-info">
+
+                <h3>General Lucian Truscott</h3>
+
+                <p>
+                    A senior American commander who played
+                    a major role in the campaign.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="leader-card">
+
+            <div class="leader-image">
+                <img src="images/french-forces.jpg"
+                     alt="French forces">
+            </div>
+
+            <div class="leader-info">
+
+                <h3>French Forces</h3>
+
+                <p>
+                    French troops participated in the
+                    campaign and contributed to the liberation
+                    of Southern France.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery" class="dark-section gallery-section">
+
+    <div class="section-heading">
+
+        <p class="section-label">ARCHIVE</p>
+
+        <h2>Historical <span>Gallery</span></h2>
+
+    </div>
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img src="images/photo1.jpg" alt="Historical photograph">
+            <div class="gallery-caption">
+                Allied Forces
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/photo2.jpg" alt="Historical photograph">
+            <div class="gallery-caption">
+                Landing Operations
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/photo3.jpg" alt="Historical photograph">
+            <div class="gallery-caption">
+                Soldiers in France
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/photo4.jpg" alt="Historical photograph">
+            <div class="gallery-caption">
+                Southern France
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MEDIA ================= -->
+
+<section id="media" class="section media-section">
+
+    <div class="section-heading">
+
+        <p class="section-label">MULTIMEDIA</p>
+
+        <h2>Explore the <span>Operation</span></h2>
+
+    </div>
+
+
+    <div class="media-grid">
+
+        <!-- VIDEO -->
+
+        <div class="media-card">
+
+            <div class="media-icon">▶</div>
+
+            <h3>Documentary Video</h3>
+
+            <p>
+                Watch a video about Operation Dragoon.
+            </p>
+
+            <video controls poster="images/video-poster.jpg">
+
+                <source
+                    src="videos/operation-dragoon.mp4"
+                    type="video/mp4">
+
+                Your browser does not support video playback.
+
+            </video>
+
+        </div>
+
+
+        <!-- PRESENTATION -->
+
+        <div class="media-card">
+
+            <div class="media-icon">📊</div>
+
+            <h3>Presentation</h3>
+
+            <p>
+                View our complete Operation Dragoon
+                presentation.
+            </p>
+
+            <a
+                href="presentation/operation-dragoon.pptx"
+                class="media-button"
+                target="_blank">
+
+                OPEN PRESENTATION →
+
+            </a>
+
+        </div>
+
+
+        <!-- SCRIPT -->
+
+        <div class="media-card">
+
+            <div class="media-icon">📜</div>
+
+            <h3>Presentation Script</h3>
+
+            <p>
+                Read the script used for our presentation.
+            </p>
+
+            <a
+                href="script/operation-dragoon-script.pdf"
+                class="media-button"
+                target="_blank">
+
+                OPEN SCRIPT →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DID YOU KNOW ================= -->
+
+<section class="did-you-know">
+
+    <div class="did-content">
+
+        <p class="section-label">HISTORICAL FACT</p>
+
+        <h2>Did You Know?</h2>
+
+        <p id="factText">
+            Operation Dragoon was originally known by
+            another planning name before its final designation.
+        </p>
+
+        <button onclick="nextFact()">
+            ANOTHER FACT
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        ⚔ OPERATION DRAGOON
+    </div>
+
+    <p>
+        A historical exploration of the Allied invasion
+        of Southern France in 1944.
+    </p>
+
+    <div class="footer-line"></div>
+
+    <p class="copyright">
+        © 2026 Operation Dragoon Historical Project
+    </p>
+
+</footer>
+
+
+<!-- ================= MODAL ================= -->
+
+<div id="eventModal" class="modal">
+
+    <div class="modal-box">
+
+        <button class="close-modal" onclick="closeEvent()">
+            ×
+        </button>
+
+        <p class="section-label">HISTORICAL EVENT</p>
+
+        <h2 id="modalTitle">
+            Event
+        </h2>
+
+        <p id="modalText">
+            Information
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- BACK TO TOP -->
+
+<button id="topButton" onclick="scrollToTop()">
+    ↑
+</button>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
