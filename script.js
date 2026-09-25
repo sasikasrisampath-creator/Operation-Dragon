@@ -1,362 +1,457 @@
-/* =========================================
-   OPERATION DRAGOON
-   JAVASCRIPT
-========================================= */
+/* =========================================================
+   OPERATION DRAGOON - MAIN JAVASCRIPT
+   ========================================================= */
 
-
-/* =========================================
-   MOBILE MENU
-========================================= */
+/* ---------- Mobile Navigation ---------- */
 
 function toggleMenu() {
-
     const nav = document.querySelector(".navbar nav");
 
-    if (nav.style.display === "flex") {
+    if (!nav) return;
 
-        nav.style.display = "none";
-
-    } else {
-
-        nav.style.display = "flex";
-
-        nav.style.flexDirection = "column";
-
-        nav.style.position = "absolute";
-
-        nav.style.top = "75px";
-
-        nav.style.right = "0";
-
-        nav.style.background = "#10130f";
-
-        nav.style.padding = "25px";
-
-        nav.style.width = "220px";
-
-    }
-
+    nav.classList.toggle("mobile-open");
 }
 
 
-/* =========================================
-   OVERVIEW READ MORE
-========================================= */
+/* Close mobile menu when a navigation link is clicked */
+
+document.querySelectorAll(".navbar nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        const nav = document.querySelector(".navbar nav");
+
+        if (nav) {
+            nav.classList.remove("mobile-open");
+        }
+    });
+});
+
+
+/* ---------- Overview ---------- */
 
 function showOverview() {
+    const overview = document.querySelector("#overview");
 
-    const extra = document.getElementById("overviewExtra");
-
-    const button = document.querySelector(".read-more-btn");
-
-    if (extra.style.display === "block") {
-
-        extra.style.display = "none";
-
-        button.textContent = "READ MORE";
-
-    } else {
-
-        extra.style.display = "block";
-
-        button.textContent = "SHOW LESS";
-
+    if (overview) {
+        overview.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
     }
-
 }
 
 
-/* =========================================
-   TIMELINE MODAL
-========================================= */
+/* ---------- Timeline Modal ---------- */
 
 function openEvent(title, text) {
-
     const modal = document.getElementById("eventModal");
-
     const modalTitle = document.getElementById("modalTitle");
-
     const modalText = document.getElementById("modalText");
 
-    modalTitle.textContent = title;
+    if (!modal || !modalTitle || !modalText) return;
 
+    modalTitle.textContent = title;
     modalText.textContent = text;
 
-    modal.classList.add("show");
+    modal.classList.add("active");
 
     document.body.style.overflow = "hidden";
-
 }
 
 
 function closeEvent() {
-
     const modal = document.getElementById("eventModal");
 
-    modal.classList.remove("show");
+    if (!modal) return;
 
-    document.body.style.overflow = "auto";
+    modal.classList.remove("active");
 
+    document.body.style.overflow = "";
 }
 
 
-/* Close modal when clicking outside */
+/* Close timeline modal when clicking outside the content */
 
-document.getElementById("eventModal").addEventListener(
-    "click",
-    function(event) {
+const eventModal = document.getElementById("eventModal");
 
-        if (event.target === this) {
-
+if (eventModal) {
+    eventModal.addEventListener("click", function (event) {
+        if (event.target === eventModal) {
             closeEvent();
-
         }
+    });
+}
 
-    }
-);
 
+/* ---------- Escape Key ---------- */
 
-/* Close modal with ESC */
+document.addEventListener("keydown", function (event) {
 
-document.addEventListener(
-    "keydown",
-    function(event) {
+    if (event.key === "Escape") {
 
-        if (event.key === "Escape") {
+        /* Close timeline modal */
+        closeEvent();
 
-            closeEvent();
+        /* Close gallery lightbox */
+        closeLightbox();
 
+        /* Close mobile navigation */
+        const nav = document.querySelector(".navbar nav");
+
+        if (nav) {
+            nav.classList.remove("mobile-open");
         }
-
     }
-);
+
+});
 
 
-/* =========================================
-   DID YOU KNOW
-========================================= */
+/* ---------- Did You Know ---------- */
 
 const facts = [
+    "Operation Dragoon began on 15 August 1944 in Southern France.",
 
-    "Operation Dragoon began on 15 August 1944 along the Mediterranean coast of Southern France.",
+    "The operation was originally known by the code name Anvil.",
 
-    "The operation involved amphibious landings supported by Allied naval and air forces.",
+    "The invasion involved Allied naval, air and ground forces.",
 
-    "French forces participated in the campaign and helped liberate areas of Southern France.",
+    "General Alexander Patch commanded the U.S. Seventh Army during the operation.",
 
-    "The operation helped the Allies secure important ports for their logistical operations.",
+    "The operation helped the Allies advance through Southern France.",
 
-    "Allied forces advanced rapidly through Southern France after the initial landings.",
+    "The capture of important ports helped support Allied logistics.",
 
-    "Operation Dragoon was carried out during the final stages of the Allied campaign in Western Europe."
-
+    "French forces also participated in the liberation of Southern France."
 ];
-
 
 let currentFact = 0;
 
 
 function nextFact() {
 
+    const factElement = document.getElementById("factText");
+
+    if (!factElement || facts.length === 0) return;
+
     currentFact++;
 
     if (currentFact >= facts.length) {
-
         currentFact = 0;
-
     }
 
-    const factText = document.getElementById("factText");
+    factElement.style.opacity = "0";
 
-    factText.style.opacity = "0";
+    setTimeout(() => {
 
-    setTimeout(function() {
+        factElement.textContent = facts[currentFact];
 
-        factText.textContent = facts[currentFact];
+        factElement.style.opacity = "1";
 
-        factText.style.opacity = "1";
-
-    }, 250);
+    }, 200);
 
 }
 
 
-/* =========================================
-   SCROLL ANIMATIONS
-========================================= */
+/* ---------- Scroll Reveal Animation ---------- */
 
-const observer = new IntersectionObserver(
-
-    function(entries) {
-
-        entries.forEach(function(entry) {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.15
-    }
-
+const revealElements = document.querySelectorAll(
+    ".section, .fact-card, .objective-card, .timeline-item, .leader-card, .gallery-item, .media-card"
 );
 
 
-document
-    .querySelectorAll(
-        ".fact-card, .objective-card, .timeline-item, .leader-card, .gallery-item, .media-card"
-    )
-    .forEach(function(element) {
+if ("IntersectionObserver" in window) {
+
+    const observer = new IntersectionObserver(
+        (entries, observerInstance) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observerInstance.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+    revealElements.forEach(element => {
+
+        element.classList.add("reveal");
 
         observer.observe(element);
 
     });
 
+} else {
 
-/* =========================================
-   BACK TO TOP
-========================================= */
+    /* Fallback for older browsers */
 
-const topButton = document.getElementById("topButton");
+    revealElements.forEach(element => {
+        element.classList.add("visible");
+    });
+
+}
 
 
-window.addEventListener("scroll", function() {
+/* ---------- Back To Top Button ---------- */
+
+const backToTop = document.getElementById("backToTop");
+
+
+function updateBackToTop() {
+
+    if (!backToTop) return;
 
     if (window.scrollY > 500) {
 
-        topButton.classList.add("show");
+        backToTop.classList.add("show");
 
     } else {
 
-        topButton.classList.remove("show");
+        backToTop.classList.remove("show");
 
     }
 
-});
+}
 
 
-function scrollToTop() {
+window.addEventListener("scroll", updateBackToTop);
 
-    window.scrollTo({
 
-        top: 0,
+if (backToTop) {
 
-        behavior: "smooth"
+    backToTop.addEventListener("click", function () {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
     });
 
 }
 
 
-/* =========================================
-   NAVBAR BACKGROUND
-========================================= */
+/* ---------- Navbar Scroll Effect ---------- */
 
-window.addEventListener("scroll", function() {
+const navbar = document.querySelector(".navbar");
 
-    const navbar = document.querySelector(".navbar");
+
+function updateNavbar() {
+
+    if (!navbar) return;
 
     if (window.scrollY > 50) {
 
-        navbar.style.background =
-            "rgba(8, 10, 7, 0.97)";
+        navbar.classList.add("scrolled");
 
     } else {
 
-        navbar.style.background =
-            "rgba(10, 13, 9, 0.9)";
+        navbar.classList.remove("scrolled");
 
     }
 
-});
+}
 
 
-/* =========================================
-   GALLERY IMAGE CLICK
-========================================= */
-
-document.querySelectorAll(".gallery-item img")
-.forEach(function(image) {
-
-    image.addEventListener("click", function() {
-
-        const viewer = document.createElement("div");
-
-        viewer.style.position = "fixed";
-        viewer.style.inset = "0";
-        viewer.style.background = "rgba(0,0,0,0.95)";
-        viewer.style.display = "flex";
-        viewer.style.alignItems = "center";
-        viewer.style.justifyContent = "center";
-        viewer.style.zIndex = "3000";
-        viewer.style.padding = "30px";
-        viewer.style.cursor = "pointer";
-
-        const largeImage = document.createElement("img");
-
-        largeImage.src = this.src;
-
-        largeImage.style.maxWidth = "90%";
-        largeImage.style.maxHeight = "90%";
-        largeImage.style.objectFit = "contain";
-
-        viewer.appendChild(largeImage);
-
-        document.body.appendChild(viewer);
-
-        viewer.addEventListener("click", function() {
-
-            viewer.remove();
-
-        });
-
-    });
-
-});
+window.addEventListener("scroll", updateNavbar);
 
 
-/* =========================================
-   ACTIVE NAVIGATION
-========================================= */
+/* ---------- Active Navigation ---------- */
 
 const sections = document.querySelectorAll("section[id]");
+const navigationLinks = document.querySelectorAll(".navbar nav a");
 
-window.addEventListener("scroll", function() {
 
-    let current = "";
+function updateActiveNavigation() {
 
-    sections.forEach(function(section) {
+    let currentSection = "";
 
-        const sectionTop = section.offsetTop;
+    sections.forEach(section => {
 
-        if (window.scrollY >= sectionTop - 150) {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
 
-            current = section.getAttribute("id");
-
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+            currentSection = section.getAttribute("id");
         }
 
     });
 
-    document
-        .querySelectorAll(".navbar nav a")
-        .forEach(function(link) {
 
-            link.classList.remove("active");
+    navigationLinks.forEach(link => {
 
-            if (
-                link.getAttribute("href") === "#" + current
-            ) {
+        link.classList.remove("active");
 
-                link.classList.add("active");
+        const href = link.getAttribute("href");
 
-            }
+        if (href === `#${currentSection}`) {
+            link.classList.add("active");
+        }
 
-        });
+    });
+
+}
+
+
+window.addEventListener("scroll", updateActiveNavigation);
+
+
+/* ---------- Gallery Lightbox ---------- */
+
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+let lightbox = null;
+
+
+/* Create lightbox */
+
+function createLightbox() {
+
+    if (lightbox) return lightbox;
+
+    lightbox = document.createElement("div");
+
+    lightbox.className = "lightbox";
+
+    lightbox.innerHTML = `
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close image">
+                &times;
+            </button>
+
+            <img src="" alt="">
+
+            <p class="lightbox-caption"></p>
+        </div>
+    `;
+
+    document.body.appendChild(lightbox);
+
+
+    /* Close button */
+
+    const closeButton = lightbox.querySelector(".lightbox-close");
+
+    if (closeButton) {
+
+        closeButton.addEventListener("click", closeLightbox);
+
+    }
+
+
+    /* Click outside image */
+
+    lightbox.addEventListener("click", function (event) {
+
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+
+    });
+
+
+    return lightbox;
+}
+
+
+/* Open lightbox */
+
+function openLightbox(imageSrc, imageAlt, caption) {
+
+    const box = createLightbox();
+
+    const image = box.querySelector("img");
+    const captionElement = box.querySelector(".lightbox-caption");
+
+    if (!image) return;
+
+    image.src = imageSrc;
+    image.alt = imageAlt || "Operation Dragoon image";
+
+    if (captionElement) {
+        captionElement.textContent = caption || "";
+    }
+
+    box.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+/* Close lightbox */
+
+function closeLightbox() {
+
+    if (!lightbox) return;
+
+    lightbox.classList.remove("active");
+
+    document.body.style.overflow = "";
+}
+
+
+/* Add click events to gallery */
+
+galleryItems.forEach(item => {
+
+    item.addEventListener("click", function () {
+
+        const image = item.querySelector("img");
+
+        if (!image) return;
+
+        const imageSrc = image.getAttribute("src");
+        const imageAlt = image.getAttribute("alt");
+
+        const captionElement = item.querySelector(
+            ".gallery-caption, figcaption, h3"
+        );
+
+        const caption = captionElement
+            ? captionElement.textContent.trim()
+            : "";
+
+        openLightbox(
+            imageSrc,
+            imageAlt,
+            caption
+        );
+
+    });
+
+});
+
+
+/* ---------- Initial Page Setup ---------- */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    updateBackToTop();
+
+    updateNavbar();
+
+    updateActiveNavigation();
+
+
+    /* Set first fact */
+
+    const factElement = document.getElementById("factText");
+
+    if (factElement && facts.length > 0) {
+
+        factElement.textContent = facts[0];
+
+    }
 
 });
