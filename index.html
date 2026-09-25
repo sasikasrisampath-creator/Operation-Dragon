@@ -19,10 +19,10 @@
 
 <header class="navbar">
 
-    <div class="logo">
+    <a href="#home" class="logo" aria-label="Operation Dragoon home">
         <span>⚔</span>
         OPERATION DRAGOON
-    </div>
+    </a>
 
     <nav>
         <a href="#home">Home</a>
@@ -132,7 +132,7 @@
         <div class="overview-image">
 
             <img src="images/dragoon-landing.jpg"
-                 alt="Operation Dragoon landing">
+                 alt="Allied forces landing in Southern France" loading="lazy">
 
             <div class="image-caption">
                 Allied forces landing in Southern France
@@ -463,8 +463,8 @@
 
     <div class="map-image">
 
-        <img src="images/operation-dragoon-map.jpg"
-             alt="Map of Operation Dragoon">
+        <img src="images/Map of Operation Dragoon.jpg"
+             alt="Map of Operation Dragoon in Southern France" loading="lazy">
 
     </div>
 
@@ -493,8 +493,8 @@
         <div class="leader-card">
 
             <div class="leader-image">
-                <img src="images/ General Alexander Patch.jpg"
-                     alt="General Patch">
+                <img src="images/General Alexander Patch.jpg"
+                     alt="General Alexander Patch" loading="lazy">
             </div>
 
             <div class="leader-info">
@@ -514,8 +514,8 @@
         <div class="leader-card">
 
             <div class="leader-image">
-                <img src="images/ General Lucian Truscott.jpg"
-                     alt="General Truscott">
+                <img src="images/General Lucian Truscott.jpg"
+                     alt="General Lucian Truscott" loading="lazy">
             </div>
 
             <div class="leader-info">
@@ -536,7 +536,7 @@
 
             <div class="leader-image">
                 <img src="images/french-forces.jpg"
-                     alt="French forces">
+                     alt="French forces involved in Operation Dragoon" loading="lazy">
             </div>
 
             <div class="leader-info">
@@ -575,7 +575,7 @@
     <!-- IMAGE 1 -->
     <div class="gallery-item">
         <img src="images/Allied Forces.jpg" 
-             alt="Allied Forces">
+             alt="Allied Forces during Operation Dragoon" loading="lazy">
         <div class="gallery-caption">
             Allied Forces
         </div>
@@ -585,7 +585,7 @@
     <!-- IMAGE 2 -->
     <div class="gallery-item">
         <img src="images/Landing Operations.webp" 
-             alt="Landing Operations">
+             alt="Allied landing operations in Southern France" loading="lazy">
         <div class="gallery-caption">
             Landing Operations
         </div>
@@ -594,8 +594,8 @@
 
     <!-- IMAGE 3 -->
     <div class="gallery-item">
-        <img src="images / Soldiers in France.jpg" 
-             alt="Soldiers in France">
+        <img src="images/Soldiers in France.jpg" 
+             alt="Allied soldiers in France" loading="lazy">
         <div class="gallery-caption">
             Soldiers in France
         </div>
@@ -616,6 +616,10 @@
 
         <h2>Explore the <span>Operation</span></h2>
 
+        <p class="media-intro">
+            Explore the video, presentation and script for Operation Dragoon.
+        </p>
+
     </div>
 
 
@@ -623,25 +627,34 @@
 
         <!-- VIDEO -->
 
-        <div class="media-card">
+        <div class="media-card video-card">
 
             <div class="media-icon">▶</div>
 
-            <h3>Documentary Video</h3>
+            <h3>Operation Dragoon Video</h3>
 
             <p>
-                Watch a video about Operation Dragoon.
+                The Bold Allied Invasion of Southern France Operation Dragoon.
             </p>
 
-            <video controls poster="images/video-poster.jpg">
+            <div class="video-wrapper">
 
-                <source
-                    src="videos/operation-dragoon.mp4"
-                    type="video/mp4">
+                <video
+                    controls
+                    preload="metadata"
+                    playsinline
+                    poster="images/Landing Operations.webp"
+                    aria-label="The Bold Allied Invasion of Southern France Operation Dragoon">
 
-                Your browser does not support video playback.
+                    <source
+                        src="videos/The Bold Allied Invasion of Southern France Operation Dragoon.mp4"
+                        type="video/mp4">
 
-            </video>
+                    Your browser does not support video playback.
+
+                </video>
+
+            </div>
 
         </div>
 
